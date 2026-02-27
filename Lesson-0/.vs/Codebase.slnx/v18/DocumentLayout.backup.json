@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FBCD96F9-55B8-4AAA-978B-A29971375C61}|Lesson-1\\Lesson-1.vcxproj|C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-1\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{FBCD96F9-55B8-4AAA-978B-A29971375C61}|Lesson-1\\Lesson-1.vcxproj|solutionrelative:Lesson-1\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FBCD96F9-55B8-4AAA-978B-A29971375C61}|Lesson-1\\Lesson-1.vcxproj|C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-1\\add.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{FBCD96F9-55B8-4AAA-978B-A29971375C61}|Lesson-1\\Lesson-1.vcxproj|solutionrelative:Lesson-1\\add.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FBCD96F9-55B8-4AAA-978B-A29971375C61}|Lesson-1\\Lesson-1.vcxproj|C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-1\\add.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{FBCD96F9-55B8-4AAA-978B-A29971375C61}|Lesson-1\\Lesson-1.vcxproj|solutionrelative:Lesson-1\\add.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D7EA19D-E8F3-4FD9-B22D-1BA941F0C599}|Lesson-0\\Lesson-0.vcxproj|C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-0\\Log.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7D7EA19D-E8F3-4FD9-B22D-1BA941F0C599}|Lesson-0\\Lesson-0.vcxproj|solutionrelative:Lesson-0\\Log.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7D7EA19D-E8F3-4FD9-B22D-1BA941F0C599}|Lesson-0\\Lesson-0.vcxproj|C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-0\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7D7EA19D-E8F3-4FD9-B22D-1BA941F0C599}|Lesson-0\\Lesson-0.vcxproj|solutionrelative:Lesson-0\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBCD96F9-55B8-4AAA-978B-A29971375C61}|Lesson-1\\Lesson-1.vcxproj|C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-1\\check.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FBCD96F9-55B8-4AAA-978B-A29971375C61}|Lesson-1\\Lesson-1.vcxproj|solutionrelative:Lesson-1\\check.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBCD96F9-55B8-4AAA-978B-A29971375C61}|Lesson-1\\Lesson-1.vcxproj|C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-1\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FBCD96F9-55B8-4AAA-978B-A29971375C61}|Lesson-1\\Lesson-1.vcxproj|solutionrelative:Lesson-1\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\NOTES.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
@@ -39,50 +31,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-0\\main.cpp",
+              "RelativeDocumentMoniker": "Lesson-0\\main.cpp",
+              "ToolTip": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-0\\main.cpp",
+              "RelativeToolTip": "Lesson-0\\main.cpp",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-02-27T10:59:10.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "add.h",
-              "DocumentMoniker": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-1\\add.h",
-              "RelativeDocumentMoniker": "Lesson-1\\add.h",
-              "ToolTip": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-1\\add.h",
-              "RelativeToolTip": "Lesson-1\\add.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-02-26T18:17:57.865Z",
+              "Title": "check.cpp",
+              "DocumentMoniker": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-1\\check.cpp",
+              "RelativeDocumentMoniker": "Lesson-1\\check.cpp",
+              "ToolTip": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-1\\check.cpp",
+              "RelativeToolTip": "Lesson-1\\check.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-02-27T10:48:25.414Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "add.cpp",
-              "DocumentMoniker": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-1\\add.cpp",
-              "RelativeDocumentMoniker": "Lesson-1\\add.cpp",
-              "ToolTip": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-1\\add.cpp",
-              "RelativeToolTip": "Lesson-1\\add.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-26T18:12:01.065Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-1\\main.cpp",
               "RelativeDocumentMoniker": "Lesson-1\\main.cpp",
               "ToolTip": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-1\\main.cpp",
               "RelativeToolTip": "Lesson-1\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-26T18:09:54.753Z",
+              "WhenOpened": "2026-02-27T10:48:05.778Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "NOTES.md [Preview]",
               "DocumentMoniker": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\NOTES.md",
               "RelativeDocumentMoniker": "..\\NOTES.md",
@@ -94,54 +86,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "NOTES.md",
               "DocumentMoniker": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\NOTES.md",
               "RelativeDocumentMoniker": "..\\NOTES.md",
               "ToolTip": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\NOTES.md",
               "RelativeToolTip": "..\\NOTES.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAACtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2026-02-26T15:30:06.042Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Log.cpp",
-              "DocumentMoniker": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-0\\Log.cpp",
-              "RelativeDocumentMoniker": "Lesson-0\\Log.cpp",
-              "ToolTip": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-0\\Log.cpp",
-              "RelativeToolTip": "Lesson-0\\Log.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-24T22:40:24.349Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "README.md",
               "DocumentMoniker": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\README.md",
               "RelativeDocumentMoniker": "..\\README.md",
               "ToolTip": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\README.md",
               "RelativeToolTip": "..\\README.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2026-02-24T22:27:19.171Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-0\\main.cpp",
-              "RelativeDocumentMoniker": "Lesson-0\\main.cpp",
-              "ToolTip": "C:\\My Stuff\\University\\Computer Science\\CPP-Learning-Resources\\Lesson-0\\Lesson-0\\main.cpp",
-              "RelativeToolTip": "Lesson-0\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-24T22:13:03.841Z",
-              "EditorCaption": ""
             }
           ]
         }
