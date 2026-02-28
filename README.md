@@ -14,6 +14,25 @@
 __`#include <iostream>`, `#include "MyHeader.h"` :__  Literally copy-pastes the contents of a header into the current file before compilation (during pre-processing). The angle brackets are for standard library headers, while the quotes are for user-defined headers. <br>
 `#define IDENTIFIER substitute` : Replaces the IDENTIFIER instance with the "substitute".
 
+### Variable Initialisation
+| Syntax | Name | Behavior |
+| :--- | :--- | :--- |
+| `int x = 2;` | Copy Initialisation | Classic C-style; allows "narrowing" (e.g., `int x = 2.9;` becomes `2`). |
+| `int x(2);` | Direct Initialisation | Can sometimes be confused with function declarations ("Most Vexing Parse"). |
+| `int x { 2 };` | Braced Initialisation | Safest. Prevents data loss and works the same for almost all types. |
+| `int x {};` | Value Initialisation | Automatically sets x to 0 (Zero-initialization). |
+
+**For best practices, use Braced Initialisation (const/constexpr is an exception).**
+
+### User I/O
+- `std::cout << "hello" << "\n";` : Prints 'hello' to console and goes to a newline.
+- `std::cin >> ch` :  Gets next input char from console, EXCLUDES whitespace as letters.
+- `std::cin.get(ch)` : Gets next input char from console, INCLUDES whitespace as letters.
+
+---
+
+## Data Types
+
 ### Default Data Types
 - `short` : 2 bytes, -32,768 to 32,767
 - `int` (long = int on most platforms) : 4 bytes, -2,147,483,648 to 2,147,483,647
@@ -25,6 +44,16 @@ __`#include <iostream>`, `#include "MyHeader.h"` :__  Literally copy-pastes the 
 - `bool` : 1 byte, can be `true` or `false`
 - `void` : represents the absence of a value or return type (used for functions that do not return anything)
 
+
+### More Complex Data Types 
+- <u>**Integral Types**</u> : **Type that can represent a whole number e.g. standard integer types, `bool`, char. They are signed by default. <br>**
+- Under the hood, a `char` is really just a integer in ASCII form.
+- `std::size_t` : An alias (`typedef`) for an unsigned integral type, is often like doing `unsigned int;`, but advantage is often 8 bits not just 4 (Size depends on architecture e.g. 64 bits on 64-bit system).
+- **It's better practice to do** : `for (std::size_t i = 0; i < myVector.size(); i++) {}` rather than `for (int i = 0; i < myVector.size(); i++) {}`, as an unsigned int can technically mismatch a signed one. <br>
+- **It's BEST practice is to do** : `for (auto i = 0ULL; i < vec.size(); ++i) {}`, where `auto` lets the compiler fit the type perfectly.
+- `int8_t` : 1 byte integer (can also do int16,32,64_t from the `<cstdint>` library)
+- `char8_t` : 1 byte char   (can also do char16,32_t)
+- 
 ### Standard Library Data Types
 - `std::string` : A sequence of characters (a string).
 - `std::vector<T>` : A dynamic array that can resize itself automatically when elements are added or removed.
@@ -36,15 +65,41 @@ __`#include <iostream>`, `#include "MyHeader.h"` :__  Literally copy-pastes the 
 - `std::pair<T1, T2>` : A simple container that holds two values of potentially different types.
 - `std::tuple<T1, T2, ...>` : A fixed-size collection of heterogeneous values (can hold more than two values).
 
-### Variable Initialisation
-| Syntax | Name | Behavior |
-| :--- | :--- | :--- |
-| `int x = 2;` | Copy Initialisation | Classic C-style; allows "narrowing" (e.g., `int x = 2.9;` becomes `2`). |
-| `int x(2);` | Direct Initialisation | Can sometimes be confused with function declarations ("Most Vexing Parse"). |
-| `int x { 2 };` | Braced Initialisation | Safest. Prevents data loss and works the same for almost all types. |
-| `int x {};` | Value Initialisation | Automatically sets x to 0 (Zero-initialization). |
+### Type Conversion
+**Explicit Type Conversion** : The `static_cast` operator explicitly casts types e.g.: `print( static_cast<int>(5.5) );` explicitly convert double value 5.5 to an int.
 
-**For best practices, use Braced Initialisation (const/constexpr is an exception).**
+**Implicit Type Conversion** : When the compiler decides the type for us e.g.:
+```
+void print(double x) {
+	std::cout << x << '\n';
+}
+
+void main() {
+	int y { 5 };
+	print(y); // y is of type int, but passes into a 'double' parameter, so converts implicitly due to the compiler.
+}
+```
+
+### Constants
+- **Literal** : Pretty much just a constant (but doesn't have a name attached). Suffixes can be added to literals to specify their type (but this is niche use case).
+- `const type varName;` : Makes a Named Constant variable (like in Java, nice and simple). <br>
+- **C-Strings** : Strings represented as an array of chars with a `\0` null terminator to indicate the end of the string (largely replaced by `std::strong` now).
+
+### Escape Sequences
+**These can just be placed in the middle of a string.**
+ 
+| Name | Symbol | Meaning |
+| :--- | :--- | :--- |
+| **Alert** | `\a` | Makes an alert, such as a beep |
+| **Backspace** | `\b` | Moves the cursor back one space |
+| **Formfeed** | `\f` | Moves the cursor to next logical page |
+| **Newline** | `\n` | Moves cursor to next line |
+| **Carriage return** | `\r` | Moves cursor to beginning of line |
+| **Horizontal tab** | `\t` | Prints a horizontal tab |
+| **Vertical tab** | `\v` | Prints a vertical tab |
+| **Single quote** | `\'` | Prints a single quote |
+| **Double quote** | `\"` | Prints a double quote |
+| **Backslash** | `\\` | Prints a backslash |
 
 ---
 
@@ -114,3 +169,9 @@ namespace MathLib {
 
 **Substitute Failure Is Not An Error (SFIAE)** : 
 
+---
+
+## Coding Best Practices/Quirks
+- Single quotes for chars 'a', double for string "abc".
+- Functions **cannot** be nested.
+- Functions **must** be declared before being called.
