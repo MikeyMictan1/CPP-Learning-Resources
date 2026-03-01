@@ -14,4 +14,10 @@
 - **Constant Propagation** : Replaces variables with known constant values with their values e.g. if `int x {7};` and `x` never changes value.
 - **Dead Code Elimination** : Removes code that has no effect on the program's behaviour.
 
-### Compile-Time Programming
+### Compile-Time Programming Pros + Cons
+#### Pros
+- Less to do at runtime, improving performance.
+- Less bugs due to errors and undefined behaviour being caught at compile time.
+
+#### Cons
+- Reliant on the compiler, so on a different device + compiler, the program may behave differently.

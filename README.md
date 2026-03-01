@@ -80,11 +80,6 @@ void main() {
 }
 ```
 
-### Constants
-- **Literal** : Pretty much just a constant (but doesn't have a name attached). Suffixes can be added to literals to specify their type (but this is niche use case).
-- `const type varName;` : Makes a Named Constant variable (like in Java, nice and simple). <br>
-- **C-Strings** : Strings represented as an array of chars with a `\0` null terminator to indicate the end of the string (largely replaced by `std::strong` now).
-
 ### Escape Sequences
 **These can just be placed in the middle of a string.**
  
@@ -149,6 +144,73 @@ namespace MathLib {
         return detail::secretHelperFormula(input) + 10.0;
     }
 }
+```
+---
+
+## Constants & Strings
+### Constants
+- **Literal** : Pretty much just a constant (but doesn't have a name attached). Suffixes can be added to literals to specify their type (but this is niche use case).
+- **Expression** :  A non-empty sequence of literals, variables, operators, and function calls that calculates a value. Evaluates at runtime by default (unless optomisation methods used).
+- **Constant Expression** : An expression that MUST be evaluatable at compile-time, must write `constexpr int x = 2 + 2;`
+- `const type varName;` : Makes a Named Constant variable (like in Java, nice and simple). <br>
+- `const` vs `constexpr` : `const` is set at runtime, whereas `constexpr` is set at compile-time.
+
+**So at the start of a program if I had some `int damage = 10`; that NEVER changes, `constexpr` is better as it allows compile-time programming. All constants that are known at compile-time should (mostly) be `constexpr`.** <br>
+**Function parameters cannot be declared as constexpr, since their initialization value isn’t determined until runtime.**
+
+### Strings
+**C-Strings** : Strings represented as an array of chars with a `\0` null terminator to indicate the end of the string (largely replaced by `std::string` now).
+
+**Standard String** <br>
+`std::string` : Way of creating strings in modern C++ `std::string name { "Mikey" };`. This should NEVER be passed by value as it makes an expensive copy, but it's ok to return.
+<br>This string has dynamic (heap) memory allocation, so can't ever have a `constexpr std::string = "hello";`.
+
+**Standard String View** <br>
+`std::string_view` : A standard string that holds a pointer to the start of some text, and the length of the text. Given it's only a pointer, it can use `constexpr`.
+**DONT return them, as iof they point to local values that get destroyed at the end of the function, we reach undefined behaviour.**
+
+- **Use `std::string` when you need to build a string (like adding two names together: first + last) or when you need to own the data.**
+- **Use `std::string_view` for function parameters (best use case imo), constants, and any situation where you just need a read-only string.**
+
+```
+void printSV(std::string_view str) // now a std::string_view, creates a view of the argument
+{
+    std::cout << str << '\n';
+}
+
+int main()
+{
+    printSV("Hello, world!"); // call with C-style string literal
+
+    std::string s2{ "Hello, world!" };
+    printSV(s2); // call with std::string
+
+    std::string_view s3{ s2 };
+    printSV(s3); // call with std::string_view
+
+    return 0;
+}
+```
+
+**Turning String Literals into Standard Strings:**
+```
+using namespace std::string_literals;      // access the s suffix
+using namespace std::string_view_literals; // access the sv suffix
+
+std::cout << "foo\n";   // no suffix is a C-style string literal
+std::cout << "goo\n"s;  // s suffix is a std::string literal
+std::cout << "moo\n"sv; // sv suffix is a std::string_view literal
+```
+
+**Reading String Input Better:**
+```
+#include <string> // For std::string and std::getline
+
+    std::cout << "Enter your full name: ";
+    std::string name{};
+    std::getline(std::cin >> std::ws, name); // read a full line of text into name
+    // std::ws tells std::cin to ignore leading whitespaces.
+
 ```
 ---
 
