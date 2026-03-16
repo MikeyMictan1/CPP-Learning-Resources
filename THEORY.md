@@ -21,3 +21,7 @@
 
 #### Cons
 - Reliant on the compiler, so on a different device + compiler, the program may behave differently.
+
+
+# Function Calls + Overhead
+When a function is called, it has to 'jump' to a new part of memory where the function lives, creating overhead. Thus inline functions (writing `5 < 6 ? 5 : 6` instead of `min(5,6)`) are more efficient.

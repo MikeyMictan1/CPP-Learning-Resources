@@ -80,6 +80,12 @@ void main() {
 }
 ```
 
+**Numeric Promotion** : Converting a smaller type to a larger one e.g. int -> double. (typically happens automatically)
+
+**Numeric Conversion** : Conversion where data loss can occur (e.g. Double -> int).
+
+**Brace initialisaion `int x {5.5};` is better, as it throws a hard error, rather than silently truncating.**
+
 ### Escape Sequences
 **These can just be placed in the middle of a string.**
  
@@ -95,6 +101,16 @@ void main() {
 | **Single quote** | `\'` | Prints a single quote |
 | **Double quote** | `\"` | Prints a double quote |
 | **Backslash** | `\\` | Prints a backslash |
+
+**Ternary Operator**
+```
+if (x > y)
+    max = x;
+else
+    max = y;
+```
+**Can be rewritten as:**
+`max = ((x > y) ? x : y);`
 
 ---
 
@@ -112,39 +128,6 @@ If we have two methods with the same function signature in two headers in the sa
 
 __For Including Headers From Other Directories In Visual Studio:__ Right click on your project in the Solution Explorer, and choose Properties, then the VC++ Directories tab. From here, you will see a line called Include Directories. Add the directories you’d like the compiler to search for additional headers there.
 
-### Namespaces
-Namespaces are used to give different names to areas of code to prevent methods of the same name conflicting when linking. (Java equivalent is packages, in Python every .py file is a 'module' which is the equivalent (import module ...). <br>
-An example is the standard library namespace in C++: `std::`
-
-#### Creating a namespace
-Namespaces can be in multiple different files, and the compiler will know to link them together.
-```
-namespace NamespaceIdentifier
-{
-    // content of namespace here
-}
-```
-
-#### Namespace Best Practices
-- Project-Wide Namespace to prevent clashes with third-party libraries.
-- Use namespaces for individual modules e.g. `GameApp:UI`, `GameApp:Network`
-- Don't nest more than 2-3 levels deep e.g. `Company::Project::Module::SubModule::Class`
-- The 'Detail' or 'Internal' namespace convention is used to hide implementation details that are necessary for code to work, but nothing else should use it (C++ equivalent of 'private'). E.g:
-```
-namespace MathLib {
-    // This is for the internal math logic
-    namespace detail {
-        double secretHelperFormula(double x) {
-            return x * 3.14159 / 42.0; 
-        }
-    }
-
-    // This is the public API people SHOULD use
-    double calculate(double input) {
-        return detail::secretHelperFormula(input) + 10.0;
-    }
-}
-```
 ---
 
 ## Constants & Strings
@@ -157,6 +140,9 @@ namespace MathLib {
 
 **So at the start of a program if I had some `int damage = 10`; that NEVER changes, `constexpr` is better as it allows compile-time programming. All constants that are known at compile-time should (mostly) be `constexpr`.** <br>
 **Function parameters cannot be declared as constexpr, since their initialization value isn’t determined until runtime.**
+
+**Conditional Statements evaluate at runtime UNLESS the constexpr keyword is used (as of C++ 17).** <br>
+`if constexpr (gravity == 9.81) { ... }` evaluates at compile time.
 
 ### Strings
 **C-Strings** : Strings represented as an array of chars with a `\0` null terminator to indicate the end of the string (largely replaced by `std::string` now).
@@ -214,11 +200,98 @@ std::cout << "moo\n"sv; // sv suffix is a std::string_view literal
 ```
 ---
 
+## Scope, Duration, Linkage
+### Namespaces
+Namespaces are used to give different names to areas of code to prevent methods of the same name conflicting when linking. (Java equivalent is packages, in Python every .py file is a 'module' which is the equivalent (import module ...). <br>
+An example is the standard library namespace in C++: `std::`
+
+#### Creating a namespace
+Namespaces can be in multiple different files, and the compiler will know to link them together.
+```
+namespace NamespaceIdentifier
+{
+    // content of namespace here
+}
+```
+
+#### Namespace Best Practices
+- Project-Wide Namespace to prevent clashes with third-party libraries.
+- Use namespaces for individual modules e.g. `GameApp:UI`, `GameApp:Network`
+- Don't nest more than 2-3 levels deep e.g. `Company::Project::Module::SubModule::Class`
+- Doing `::method` gets the method from the global namespace
+- Namespaces must BOTH be in cpp files AND header files
+- Namespace Aliases `namespace Active = Foo::Goo; // active now refers to Foo::Goo`
+- The 'Detail' or 'Internal' namespace convention is used to hide implementation details that are necessary for code to work, but nothing else should use it (C++ equivalent of 'private'). E.g:
+```
+namespace MathLib {
+    // This is for the internal math logic
+    namespace detail {
+        double secretHelperFormula(double x) {
+            return x * 3.14159 / 42.0; 
+        }
+    }
+
+    // This is the public API people SHOULD use
+    double calculate(double input) {
+        return detail::secretHelperFormula(input) + 10.0;
+    }
+}
+```
+
+**Local variables are automatically destroyed when they go out of scope (e.g. at the end of a function). Classic RAII example.**
+
+### Linkage
+**Linkage** : property that determines whether a name (like a variable or function name) refers to the same entity across different parts of a program.
+
+**Internal Linkage** : Name is unique to the source file it's defined in and can't be accessed elsewhere. `static int x;` is internal due to `static` keyword.
+
+**External Linkage** : Names are external by default. `extern const int g_y { 3 };` const globals can be defined as extern, making them external.
+
+**To use an external global variable, you must use a forward declaration with extern: (CANNOT be done with constexpr)** <br>
+```
+extern int g_x;       // this extern is a forward declaration of a variable named g_x that is defined somewhere else
+extern const int g_y; // this extern is a forward declaration of a const variable named g_y that is defined somewhere else
+```
+
+**It is important to note it is bad practice to EVER use global variables, especially in C++, so try to avoid this anyways!!**
+
+**Another Example:** <br>
+a.cpp
+```
+int x {5};
+```
+
+b.cpp
+```
+extern int x;
+```
+
+if I printed x in b.cpp, it would give me 5. If b.cpp ONLY said `int x;`, then it would not print 5 as no longer looking for an external x.
+
+**Static Keyword** <br>
+Static local variables are used when you need a local variable to remember its value across function calls. Doesn't automatically get destroyed, but is out of scope outside of the function. So both local AND non-raii.
+```
+void incrementAndPrint()
+{
+    static int s_value{ 1 }; // static duration via static keyword.  This initializer is only executed once.
+    ++s_value;
+    std::cout << s_value << '\n';
+} // s_value is not destroyed here, but becomes inaccessible because it goes out of scope
+```
+**A very common use-case, is for ID generation, as it will keep incrementing.**
+
+## Types
+
+## Functions Expanded
+
 ## Pointers & References
+
+## Enums & Structs
 
 ## C++ Idioms
 
 **Resource Acquisition Is Initialisation (RAII)** : Resource memory is tied to the lifetime of a local object, and when the object goes out of scope, its destructor is called, freeing the resource (done automatically for variables in functions, smart pointers).
+
 **Pimpl** : 
 
 **Curiously Recurring Template Pattern (CRTP)** : 
@@ -237,3 +310,4 @@ std::cout << "moo\n"sv; // sv suffix is a std::string_view literal
 - Single quotes for chars 'a', double for string "abc".
 - Functions **cannot** be nested.
 - Functions **must** be declared before being called.
+- It's bad practice to EVER use global variables, especially in C++.
