@@ -8,9 +8,9 @@ public:
     const std::string& getName() const { return name; }
     int getAge() const { return age; }
 
-    void setName(std::string nam)
+    void setName(const std::string& nam)
     {
-        name = std::move(nam);
+        name = nam;
     }
 
 private:
@@ -42,10 +42,15 @@ int main()
     // ------------------------------
 
     Dog peanut("peanut", 10);
-    peanut.getName();
-    peanut.getAge();
-    peanut.setName("Crysmastree");
-    peanut.getName();
+    std::cout << peanut.getName() << std::endl;
+    std::cout << peanut.getAge() << std::endl;
+
+    // ------------------------------
+
+    const std::string temp_name = "Crysmastree";
+    peanut.setName(temp_name);
+    std::cout << peanut.getName() << std::endl;
+    std::cout << temp_name << std::endl;
 
     return 0;
 
