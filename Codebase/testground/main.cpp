@@ -1,6 +1,23 @@
 #include <iostream>
 #include <vector>
 
+class Dog {
+public:
+    Dog(std::string nam, int ag) : name{std::move(nam)}, age{ag} {}
+
+    const std::string& getName() const { return name; }
+    int getAge() const { return age; }
+
+    void setName(std::string nam)
+    {
+        name = std::move(nam);
+    }
+
+private:
+    std::string name;
+    int age;
+};
+
 int main() 
 {
     // ------------------------- Pointers and References -------------------------------------------
@@ -22,6 +39,15 @@ int main()
         std::cout << x << std::endl;
     }
 
+    // ------------------------------
+
+    Dog peanut("peanut", 10);
+    peanut.getName();
+    peanut.getAge();
+    peanut.setName("Crysmastree");
+    peanut.getName();
+
     return 0;
 
 }
+
