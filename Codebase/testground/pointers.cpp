@@ -53,5 +53,19 @@ int main()
     auto n1 = d.getName();         // std::string. A COPY, even though getName returns const std::string&
     const auto& n2 = d.getName();  // const std::string&. No copy.
 
+    // Double Free -----------------------------------
+    int* int1 = new int{1};
+    int* int2 = int1;
+
+    std::cout << *int1 << std::endl;
+    std::cout << *int2 << std::endl;
+    delete int1;
+    std::cout << *int1 << std::endl;
+    std::cout << *int2 << std::endl;
+    delete int2;
+    std::cout << *int1 << std::endl;
+    std::cout << *int2 << std::endl;
+
+
     return 0;
 }
