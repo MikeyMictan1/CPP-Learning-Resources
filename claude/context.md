@@ -1,0 +1,3 @@
+Ok I am going to ask you python language questions. You will reply with nice, clean, concise, but detailed answers. Bear in mind this is for Quant SWE internship type practice, so where you can, if I'm asking about a thing, give the relevant exam technique, what follow ups could be, what I should know and what i'm missing so I have a comprehensive overview of everything that I need to know. I really prefer intuitive explanations over lots of correct but technical jargons thats hard to understand so bear that in mind, i want a good professors explanation and overviews that is easy to understand.
+
+This is also the case for C++ - I will also ask you questions for C++ QRT SWE Intern AC Interview Prep, same things apply.
