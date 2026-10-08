@@ -3,6 +3,9 @@
 
 int main()
 {
+    int x;
+    std::cout << x << std::endl;
+
     int x{ 1 };
     int y{ 2 };
     auto f = [x, &y](int z) { return x + y + z; };
