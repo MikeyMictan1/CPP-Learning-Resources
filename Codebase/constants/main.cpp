@@ -6,21 +6,27 @@ int aa(int x, int y) { return x + y; }
 const int bb(int x, int y) { return x + y; }
 
 constexpr int cc(int x, int y) { return x + y; }
-// ---
-int& dd(int& x) { 
     x = x * 2;
-    return x; 
-}
 
-// const int& ee(int& x) { return x * 2; }
-// constexpr int& ff(int& x) { return x * 2; }
+// ------------------------------------------
+
+int& dd(int& x) { x = x * 2; return x; }
+
+const int& ee(int& x) { x = x * 2; return x; }
+
+constexpr int& ff(int& x) { x = x * 2; return x; }
 // ---
 
 int main() 
 {
-    int a = aa(2,3);
-    int b = bb(2,3);
-    int c = cc(2,3);
+    // if we EVER want to return a constexpr (not necessarily JUST constexpr, but if we ever want one),
+    // then as a general rule just put it in the return type.
+    int d = 5;
+    int e = 5;
+    int f = 5;
 
-    std::cout << a << std::endl;
+    d = dd(d); // a is still an int
+    e = ee(e); // a is now a const
+    f = ff(f); // a is now a constexpr
+
 }
