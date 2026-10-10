@@ -6,7 +6,6 @@ int aa(int x, int y) { return x + y; }
 const int bb(int x, int y) { return x + y; }
 
 constexpr int cc(int x, int y) { return x + y; }
-    x = x * 2;
 
 // ------------------------------------------
 

@@ -66,6 +66,14 @@ int main()
     std::cout << *int1 << std::endl;
     std::cout << *int2 << std::endl;
 
+    // Misc
+    std::cout << "--------------------------------------------------------------\n";
+    std::shared_ptr<int> a;                  // no control block
+    int* numer = new int(100);                 // no control block, it's just a heap int
+    std::shared_ptr<int> b(numer);             // control block #1 created, strong 1
+    auto c = b;                              // shares #1, strong 2
+    std::shared_ptr<int> d(numer);             // BUG: control block #2 created, strong 1
+                                            // #1 and #2 will both delete raw
 
     return 0;
 }
